@@ -38,7 +38,7 @@ DUCKDB_MEMORY_LIMIT = "64GB"
 
 # Streaming batch configuration
 BATCH_SIZE_DAYS = 7  # Process 1 week at a time (~168 hourly files)
-# At this size: ~7 days ⚠ 24 files ⚠ ~100MB per file = ~16GB uncompressed per batch
+# At this size: ~7 days × 24 files × ~100MB per file = ~16GB uncompressed per batch
 
 # Download configuration
 DOWNLOAD_WORKERS = 4
