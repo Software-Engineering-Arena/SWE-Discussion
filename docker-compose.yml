@@ -3,16 +3,13 @@ services:
     build:
       context: .
       dockerfile: Dockerfile
-    container_name: gharchive-miner
+    container_name: ${COMPOSE_PROJECT_NAME}
     restart: unless-stopped
     env_file:
       - .env
     volumes:
-      # Mount entire workspace for live code updates
       - .:/app
-      # Mount gharchive workspace for data storage
       - ../gharchive:/gharchive:ro
-      # Mount bot data for agent repository storage
       - ../bot_data:/bot_data:ro
     environment:
       - PYTHONUNBUFFERED=1
