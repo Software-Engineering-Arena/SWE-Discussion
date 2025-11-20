@@ -14,6 +14,9 @@ import requests.exceptions
 from apscheduler.schedulers.blocking import BlockingScheduler
 from apscheduler.triggers.cron import CronTrigger
 import logging
+import traceback
+import subprocess
+import re
 
 # Load environment variables
 load_dotenv()
@@ -90,8 +93,6 @@ def normalize_date_format(date_string):
         return 'N/A'
 
     try:
-        import re
-
         if isinstance(date_string, datetime):
             return date_string.strftime('%Y-%m-%dT%H:%M:%SZ')
 
@@ -187,7 +188,6 @@ def download_all_gharchive_data():
 
     except Exception as e:
         print(f"Error during download: {str(e)}")
-        import traceback
         traceback.print_exc()
         return False
 
@@ -450,7 +450,6 @@ def fetch_all_discussion_metadata_streaming(conn, identifiers, start_date, end_d
 
         except Exception as e:
             print(f"\n   ✗ Batch {batch_num} error: {str(e)}")
-            import traceback
             traceback.print_exc()
 
         # Move to next batch
@@ -481,8 +480,6 @@ def sync_agents_repo():
         raise ValueError(error_msg)
 
     try:
-        import subprocess
-
         # Run git pull with extended timeout due to large repository
         result = subprocess.run(
             ['git', 'pull'],
@@ -723,7 +720,6 @@ def save_leaderboard_data_to_hf(leaderboard_dict, monthly_metrics):
 
     except Exception as e:
         print(f"Error saving leaderboard data: {str(e)}")
-        import traceback
         traceback.print_exc()
         return False
 
@@ -774,7 +770,6 @@ def mine_all_agents():
 
     except Exception as e:
         print(f"Error during DuckDB fetch: {str(e)}")
-        import traceback
         traceback.print_exc()
         return
     finally:
@@ -789,7 +784,6 @@ def mine_all_agents():
 
     except Exception as e:
         print(f"Error saving leaderboard: {str(e)}")
-        import traceback
         traceback.print_exc()
 
 
