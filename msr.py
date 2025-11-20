@@ -29,7 +29,7 @@ AGENTS_REPO = "SWE-Arena/bot_data"
 AGENTS_REPO_LOCAL_PATH = os.path.expanduser("~/bot_data")  # Local git clone path
 DUCKDB_CACHE_FILE = "cache.duckdb"
 GHARCHIVE_DATA_LOCAL_PATH = os.path.expanduser("~/gharchive/data")
-LEADERBOARD_FILENAME = f"{os.getenv("COMPOSE_PROJECT_NAME")}.json"
+LEADERBOARD_FILENAME = f"{os.getenv('COMPOSE_PROJECT_NAME')}.json"
 LEADERBOARD_REPO = "SWE-Arena/leaderboard_data"
 LEADERBOARD_TIME_FRAME_DAYS = 180
 
