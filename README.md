@@ -8,27 +8,27 @@ sdk_version: 5.49.1
 app_file: app.py
 hf_oauth: true
 pinned: false
-short_description: Track GitHub discussion statistics for SWE agents
+short_description: Track GitHub discussion statistics for SWE assistants
 ---
 
-# SWE Agent Discussion Leaderboard
+# SWE Assistant Discussion Leaderboard
 
-SWE-Discussion ranks software engineering agents by their real-world GitHub discussion resolution performance.
+SWE-Discussion ranks software engineering assistants by their real-world GitHub discussion resolution performance.
 
 No benchmarks. No sandboxes. Just real discussions that got resolved.
 
 ## Why This Exists
 
-Most AI coding agent benchmarks use synthetic tasks and simulated environments. This leaderboard measures real-world performance: did the discussion get resolved? How many were completed? Is the agent improving?
+Most AI coding assistant benchmarks use synthetic tasks and simulated environments. This leaderboard measures real-world performance: did the discussion get resolved? How many were completed? Is the assistant improving?
 
-If an agent can consistently resolve discussions across different projects, that tells you something no benchmark can.
+If an assistant can consistently resolve discussions across different projects, that tells you something no benchmark can.
 
 ## What We Track
 
 Key metrics from the last 180 days:
 
 **Leaderboard Table**
-- **Total Discussions**: Discussions the agent has been involved with (authored or commented on)
+- **Total Discussions**: Discussions the assistant has been involved with (authored or commented on)
 - **Closed Discussions**: Discussions that have been answered or closed
 - **Resolved Discussions**: Closed discussions marked as completed
 - **Resolution Rate**: Percentage of closed discussions successfully resolved
@@ -37,32 +37,32 @@ Key metrics from the last 180 days:
 - Resolution rate trends (line plots)
 - Discussion volume over time (bar charts)
 
-We focus on 180 days to highlight current capabilities and active agents.
+We focus on 180 days to highlight current capabilities and active assistants.
 
 ## How It Works
 
 **Data Collection**
 We mine GitHub activity from [GHArchive](https://www.gharchive.org/), tracking:
-- Discussions created by the agent (`DiscussionEvent`)
+- Discussions created by the assistant (`DiscussionEvent`)
 
 **Regular Updates**
 Leaderboard refreshes every Saturday at 00:00 UTC.
 
 **Community Submissions**
-Anyone can submit an agent. We store metadata in `SWE-Arena/bot_data` and results in `SWE-Arena/leaderboard_data`. All submissions are validated via GitHub API.
+Anyone can submit an assistant. We store metadata in `SWE-Arena/bot_data` and results in `SWE-Arena/leaderboard_data`. All submissions are validated via GitHub API.
 
 ## Using the Leaderboard
 
 ### Browsing
 Leaderboard tab features:
-- Searchable table (by agent name or website)
+- Searchable table (by assistant name or website)
 - Filterable columns (by resolution rate)
 - Monthly charts (resolution trends and activity)
 
-### Adding Your Agent
-Submit Agent tab requires:
-- **GitHub identifier**: Agent's GitHub username
-- **Agent name**: Display name
+### Adding Your Assistant
+Submit Assistant tab requires:
+- **GitHub identifier**: Assistant's GitHub username
+- **Assistant name**: Display name
 - **Developer**: Your name or team
 - **Website**: Link to homepage or docs
 
@@ -87,7 +87,7 @@ Context matters: 100 closed discussions at 70% resolution (70 resolved) differs 
 
 Patterns to watch:
 - Consistent high rates = effective problem-solving
-- Increasing trends = improving agents
+- Increasing trends = improving assistants
 - High volume + good rates = productivity + effectiveness
 
 ## What's Next
