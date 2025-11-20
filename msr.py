@@ -29,6 +29,7 @@ AGENTS_REPO = "SWE-Arena/bot_data"
 AGENTS_REPO_LOCAL_PATH = os.path.expanduser("~/bot_data")  # Local git clone path
 DUCKDB_CACHE_FILE = "cache.duckdb"
 GHARCHIVE_DATA_LOCAL_PATH = os.path.expanduser("~/gharchive/data")
+LEADERBOARD_FILENAME = f"{os.path.basename(os.getcwd())}.json"
 LEADERBOARD_REPO = "SWE-Arena/leaderboard_data"
 LEADERBOARD_TIME_FRAME_DAYS = 180
 
@@ -691,8 +692,7 @@ def save_leaderboard_data_to_hf(leaderboard_dict, monthly_metrics):
             raise Exception("No HuggingFace token found")
 
         api = HfApi(token=token)
-        filename = "swe-discussion.json"
-
+        
         combined_data = {
             'last_updated': datetime.now(timezone.utc).isoformat(),
             'leaderboard': leaderboard_dict,
@@ -702,21 +702,21 @@ def save_leaderboard_data_to_hf(leaderboard_dict, monthly_metrics):
             }
         }
 
-        with open(filename, 'w') as f:
+        with open(LEADERBOARD_FILENAME, 'w') as f:
             json.dump(combined_data, f, indent=2)
 
         try:
             upload_file_with_backoff(
                 api=api,
-                path_or_fileobj=filename,
-                path_in_repo=filename,
+                path_or_fileobj=LEADERBOARD_FILENAME,
+                path_in_repo=LEADERBOARD_FILENAME,
                 repo_id=LEADERBOARD_REPO,
                 repo_type="dataset"
             )
             return True
         finally:
-            if os.path.exists(filename):
-                os.remove(filename)
+            if os.path.exists(LEADERBOARD_FILENAME):
+                os.remove(LEADERBOARD_FILENAME)
 
     except Exception as e:
         print(f"Error saving leaderboard data: {str(e)}")
