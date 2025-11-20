@@ -19,7 +19,7 @@ No benchmarks. No sandboxes. Just real discussions that got resolved.
 
 ## Why This Exists
 
-Most AI coding assistant benchmarks use synthetic tasks and simulated environments. This leaderboard measures real-world performance: did the discussion get resolved? How many were completed? Is the assistant improving?
+Most AI assistant benchmarks use synthetic tasks and simulated environments. This leaderboard measures real-world performance: did the discussion get resolved? How many were completed? Is the assistant improving?
 
 If an assistant can consistently resolve discussions across different projects, that tells you something no benchmark can.
 
