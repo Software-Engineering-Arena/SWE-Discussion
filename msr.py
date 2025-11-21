@@ -554,8 +554,8 @@ def load_agents_from_hf():
                 with open(file_path, 'r', encoding='utf-8') as f:
                     agent_data = json.load(f)
 
-                # Only include public agents
-                if agent_data.get('status') != 'public':
+                # Only include active agents
+                if agent_data.get('status') != 'active':
                     continue
 
                 # Extract github_identifier from filename
@@ -568,7 +568,7 @@ def load_agents_from_hf():
                 print(f"   ⚠ Error loading {filename}: {str(e)}")
                 continue
 
-    print(f"   ✓ Loaded {len(agents)} public agents (from {files_processed} total files)")
+    print(f"   ✓ Loaded {len(agents)} active agents (from {files_processed} total files)")
     return agents
 
 
