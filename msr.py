@@ -164,7 +164,7 @@ def download_all_gharchive_data():
     """Download all GHArchive data files for the last LEADERBOARD_TIME_FRAME_DAYS."""
     os.makedirs(GHARCHIVE_DATA_LOCAL_PATH, exist_ok=True)
 
-    end_date = datetime.now()
+    end_date = datetime.now(timezone.utc)
     start_date = end_date - timedelta(days=LEADERBOARD_TIME_FRAME_DAYS)
 
     urls = []
